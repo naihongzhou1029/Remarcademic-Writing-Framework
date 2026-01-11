@@ -4,6 +4,12 @@ This repository is a self-contained, reproducible example of a modern plain‑te
 
 The project demonstrates how to produce a fully typeset scholarly PDF—complete with citations, bibliography, tables, cross‑references, multilingual typesetting, and custom page layout—using version‑controlled text files and command‑line tools.
 
+### Project Goals
+
+- **Sustainable Academic Workflow**: Demonstrate a reliable, plain-text academic writing process using `paper.md`, Pandoc, LaTeX, Zotero/Better BibTeX, and a `Makefile`-driven build.
+- **Multilingual Support**: Show how to translate manuscripts (e.g., to Traditional Chinese) using LLM-based scripts and rebuild typeset PDFs from the translated sources.
+- **Reproducibility**: Use Docker to provide a consistent environment where the same source always produces the same output.
+
 ### Key Ideas
 
 - **Sustainability and durability**: Plain‑text Markdown files are future‑proof compared to proprietary word‑processor formats. They remain readable and diff‑friendly, and integrate naturally with Git.
@@ -54,6 +60,17 @@ This project uses **Docker** to provide a consistent, reproducible build environ
 - **Zotero + Better BibTeX extension** for managing and exporting bibliographic data (runs on your host machine)
 - **CSL style file** matching your preferred citation format (e.g., Chicago author‑date)
 - A **plain‑text editor** and **Git** for version control
+
+### Project Structure
+
+- **`README.md`**: High-level description of the workflow, toolchain, and build commands.
+- **`AGENTS.md`**: Technical constraints and instructions specifically for AI agents.
+- **`paper.md`**: The primary English manuscript. Contains YAML metadata for document configuration.
+- **`Makefile`**: Orchestrates the build process (targets: `pdf`, `cover`, `printed`, `zh_tw`, `clean`).
+- **`tools/`**: Helper scripts for translation, font detection, validation, and post-processing.
+  - **`validate-and-fix-translated-md.sh`**: AI-powered validation to fix formatting errors in translated Markdown.
+- **`Dockerfile`**: Defines the `pandocker-with-tools:latest` image used for builds.
+- **`make-docker.sh`** (and `.bat`/`.ps1`): Wrappers for running `make` inside the Docker container.
 
 ### Basic Usage: Build the Example PDF
 
