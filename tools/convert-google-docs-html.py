@@ -2,7 +2,7 @@
 """
 Convert Google Docs HTML export to framework format.
 Converts HTML to Markdown, extracts metadata, handles images, and generates
-paper.md, cover_page.tex, and bibliography.json.
+paper.md, cover_page.tex, and bibliography.bib.
 """
 
 import re
@@ -815,8 +815,18 @@ def main():
     
     print("Processing bibliography...")
     if collections_json.exists():
-        shutil.copy2(collections_json, project_root / "bibliography.json")
-        print(f"  Copied collections.json to bibliography.json")
+        import subprocess
+        try:
+            subprocess.run([
+                "pandoc", str(collections_json), 
+                "-s", "-f", "csljson", "-t", "bibtex", 
+                "-o", str(project_root / "bibliography.bib")
+            ], check=True)
+            print(f"  Converted collections.json to bibliography.bib")
+        except (subprocess.CalledProcessError, FileNotFoundError) as e:
+            print(f"  Warning: Could not convert to BibTeX using pandoc: {e}")
+            shutil.copy2(collections_json, project_root / "bibliography.bib")
+            print(f"  Fallback: Copied collections.json to bibliography.bib")
     
     print("Generating paper.md...")
     generate_paper_md(project_root, metadata, parser.content)
@@ -837,7 +847,7 @@ title: "{title}"
 author: "{author}"
 abstract: "{abstract}"
 bibliography:
-  - bibliography.json
+  - bibliography.bib
 csl: chicago-author-date.csl
 link-citations: true
 pdf-engine: xelatex

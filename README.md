@@ -23,7 +23,7 @@ The project demonstrates how to produce a fully typeset scholarly PDF—complete
 - **Pandoc**: The central document converter, used to transform `paper.md` into LaTeX and then to PDF.
 - **LaTeX distribution (e.g., TeX Live)**: Provides the typesetting engine (XeLaTeX in this example) and packages needed for advanced layouts and multilingual text.
 - **Plain‑text editor**: Any modern editor (VS Code, Zettlr, etc.) is used for writing and editing the Markdown source.
-- **Zotero + Better BibTeX**: Manages bibliographic data and exports it automatically (e.g., `references.json`, `bibliography.json`) for Pandoc to consume.
+- **Zotero + Better BibTeX**: Manages bibliographic data and exports it automatically (e.g., `references.json`, `bibliography.bib`) for Pandoc to consume.
 - **CSL styles**: A citation style definition (e.g., `chicago-author-date.csl`) controls how citations and the bibliography are rendered.
 - **Pandoc filters**:
   - `--citeproc` for automated citation processing and bibliography generation.

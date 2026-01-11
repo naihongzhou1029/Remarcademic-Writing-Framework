@@ -3,7 +3,7 @@ title: "利用生成式人工智慧從遊戲設計流程中的規格書進行知
 author: "周乃宏"
 abstract: ""
 bibliography:
-  - bibliography.json
+  - bibliography.bib
 csl: chicago-author-date.csl
 link-citations: true
 pdf-engine: xelatex
