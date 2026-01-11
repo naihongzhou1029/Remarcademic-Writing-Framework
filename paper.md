@@ -29,7 +29,7 @@ header-includes:
     \pretocmd{\listoffigures}{\clearpage}{}{}
     \pretocmd{\listoftables}{\clearpage}{}{}
     \apptocmd{\listoftables}{\clearpage}{}{}
-    \pretocmd{\section}{\FloatBarrier}{}{}
+    \pretocmd{\section}{\clearpage\FloatBarrier}{}{}
 figPrefix: "圖"
 tblPrefix: "表"
 rangeDelim: "–"
@@ -87,7 +87,7 @@ GenAI產品和技術迭代迅速，為統一評估可行性標準，將會以202
 
 ## 論文架構
 
-本論文將分為五個章節：
+本論文將分為四個章節：
 
 - 第一章 緒論：說明研究背景、動機、目的、範圍、方法與限制。
 - 第二章 文獻探討：說明知識管理的重要性，知識管理流程的本質以及已知的業界解法
