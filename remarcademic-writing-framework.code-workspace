@@ -9,13 +9,17 @@
 		"makefile.configureOnOpen": false,
 		"terminal.integrated.inheritEnv": true,
 		"terminal.integrated.tabs.focusMode": "singleClick",
+		"terminal.integrated.focusAfterRun": "terminal",
 		"terminal.integrated.profiles.windows": {
 			"Command Prompt": {
 				"path": [
 					"${env:windir}\\System32\\cmd.exe"
 				],
 				"icon": "terminal-cmd",
-				"args": ["/K", "chcp 65001 >nul"]
+				"args": [
+					"/K",
+					"chcp 65001 >nul"
+				]
 			},
 			"PowerShell": {
 				"source": "PowerShell",
